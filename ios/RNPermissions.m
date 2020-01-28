@@ -49,6 +49,9 @@
 #if __has_include("RNPermissionHandlerStoreKit.h")
 #import "RNPermissionHandlerStoreKit.h"
 #endif
+#if __has_include("RNPermissionHandlerBluetoothCentral.h")
+#import "RNPermissionHandlerBluetoothCentral.h"
+#endif
 
 static NSString* SETTING_KEY = @"@RNPermissions:Requested";
 
@@ -99,6 +102,9 @@ RCT_ENUM_CONVERTER(RNPermission, (@{
 #endif
 #if __has_include("RNPermissionHandlerStoreKit.h")
   [RNPermissionHandlerStoreKit handlerUniqueId]: @(RNPermissionStoreKit),
+#endif
+#if __has_include("RNPermissionHandlerBluetoothCentral.h")
+  [RNPermissionHandlerBluetoothCentral handlerUniqueId]: @(RNPermissionBluetoothCentral),
 #endif
 }), RNPermissionUnknown, integerValue);
 
@@ -199,6 +205,11 @@ RCT_EXPORT_MODULE();
 #if __has_include("RNPermissionHandlerStoreKit.h")
     case RNPermissionStoreKit:
       handler = [RNPermissionHandlerStoreKit new];
+      break;
+#endif
+#if __has_include("RNPermissionHandlerBluetoothCentral.h")
+    case RNPermissionBluetoothCentral:
+      handler = [RNPermissionHandlerBluetoothCentral new];
       break;
 #endif
     case RNPermissionUnknown:

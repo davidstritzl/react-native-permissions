@@ -34,6 +34,7 @@ target 'YourAwesomeProject' do
 
   permissions_path = '../node_modules/react-native-permissions/ios'
 
+  pod 'Permission-BluetoothCentral', :path => "#{permissions_path}/BluetoothCentral.podspec"
   pod 'Permission-BluetoothPeripheral', :path => "#{permissions_path}/BluetoothPeripheral.podspec"
   pod 'Permission-Calendars', :path => "#{permissions_path}/Calendars.podspec"
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
@@ -386,6 +387,7 @@ PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE;
 
 // iOS permissions
 
+PERMISSIONS.IOS.BLUETOOTH_CENTRAL;
 PERMISSIONS.IOS.BLUETOOTH_PERIPHERAL;
 PERMISSIONS.IOS.CALENDARS;
 PERMISSIONS.IOS.CAMERA;
